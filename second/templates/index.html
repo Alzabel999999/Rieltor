@@ -1,0 +1,367 @@
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Квартиры</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'second/ico1.png' %}" rel="icon">
+  <link href="{% static 'second/ico1.png' %}" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Raleway:400,300,700,900" rel="stylesheet">
+  <link href="{% static 'second/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'second/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'second/css/style.css' %}" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <style>
+  #headerwrap {
+  background: url("{% static 'second/wall.jpg' %}") no-repeat center top;
+  margin-top: -10px;
+  padding-top: 20px;
+  text-align: center;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 500px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar {
+  font-weight: 800;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navbar-inverse {
+  background: #2d2d2d;
+  border-color: #2d2d2d;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+  background: #4682B4;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #999999;
+  font-weight: bolder;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.navbar-inverse .navbar-brand i {
+  color: #4682B4;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.container2 {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 26px;
+  margin: 16px 0
+}
+
+
+.container2::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container2 img {
+  float: left;
+  margin-right: 20px;
+}
+
+.container2 span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+@media (max-width: 500px) {
+  .container2 {
+      text-align: center;
+  }
+  .container2 img {
+      margin: auto;
+      float: none;
+      display: block;
+  }
+}
+
+
+</style>
+
+  <!-- =======================================================
+    Template Name: Spot
+    Template URL: https://templatemag.com/spot-bootstrap-freelance-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <h2 style="color: #4682B4; font-weight: bolder; font-size: 22px; letter-spacing: 1px;font-family:estrangelo edessa;">Зубкова Юлия</h2>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="{% url 'index'%}">КВАРТИРЫ</a></li>
+          <li><a href="{% url 'about'%}">СВЯЗАТЬСЯ</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+
+    <div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h1  class="display-4" style="color:#191970; font-family:fantasy;">Риэлтор <b>24/7</b></h1>
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+
+{% if user.is_authenticated %}
+<div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <br>
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+          <div class="pricing-option">
+            <div class="pricing-top">
+              <span class="special-label">Админ панель</span>
+              </span>
+            </div>
+            <ul>
+              <li><strong>Добро пожаловать, Юлия </strong></li>
+              <form action="{% url 'logout_view' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Выйти" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="btn btn-danger">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              </form>
+            </ul>
+          </div>
+        </div>
+
+
+
+
+
+        <div class="col-lg-4">
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <!-- /col -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+
+      <div class="container">
+      <div class="row main-form">
+        <form action="{% url 'saveform' %}?next={{ request.path|urlencode }}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="col-lg-4">
+          <h2>Цена:</h2>
+          {{write.price|as_crispy_field:'bootstrap'}}
+        </div>
+        <div class="col-lg-4">
+          <h2>Заголовок:</h2>
+          {{write.about|as_crispy_field:'bootstrap'}}
+        </div>
+        <div class="col-lg-4">
+          <h2>Основное изображение:</h2>
+          {{write.image|as_crispy_field:'bootstrap'}}
+        </div>
+      </div>
+      <form class="row">
+        <div class="col-lg-4">
+          <h2>Описание:</h2>
+          {{write.coment|as_crispy_field:'bootstrap'}}
+        </div>
+        <div class="col-lg-4">
+          <h2>Другие изображения:</h2>
+          {{write.files|as_crispy_field:'bootstrap'}}
+        </div>
+        <div class="col-lg-4">
+          <h1><br></h1>
+          <input type="submit" value="Добавить обьявление" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="btn btn-info">
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        </div>
+      </form>
+      </div>
+    </div>
+{% endif %}
+
+
+
+
+
+<div id="dg1">
+  <h3 style="background-color: #00BFFF;"></h3>
+
+
+
+
+{% if not user.is_authenticated %}
+ {% for pp in users %}
+    <div class="container2">
+      <a href="{{ pp.get_absolute_url }}?next={{ request.path|urlencode }}"><img src="{{ pp.image.url }}" class="thumb1" style="width:250px;height:300px;"></a>
+      <p><span><strong>{{ pp.price }}</strong>
+        {% if user.is_authenticated %}
+        <a href="delete/{{pp.id}}">Удалить</a></td>
+        {% endif %}
+      </span> </p>
+      <p><strong>{{ pp.about }}</strong></p>
+    </div>
+  {% endfor %}
+{% else  %}
+   {% for ss in user_list %}
+    <div class="container2">
+      <a href="{{ ss.get_absolute_url }}"><img src="{{ ss.image.url }}" class="thumb1" style="width:250px;height:300px;"></a>
+      <p><span><strong>{{ ss.price }}</strong>
+        {% if user.is_authenticated %}
+        <a href="delete/{{ss.id}}">Удалить</a></td>
+        {% endif %}
+      </span> </p>
+      <p><strong>{{ ss.about }}</strong></p>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+{% if not user.is_authenticated %}
+{% if users.has_other_pages %}
+  <ul class="pagination">
+    {% if users.has_previous %}
+      <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in users.paginator.page_range %}
+      {% if users.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+{% endif %}
+
+
+
+{% if not user.is_authenticated %}
+<div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <br>
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+        </div>
+        <!-- /col -->
+
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+          <div class="pricing-option">
+            <div class="pricing-top">
+              <span class="special-label">Админ панель</span>
+              </span>
+            </div>
+            <form action="{% url 'index' %}?next={{ request.path|urlencode }}" method="post">
+              {% csrf_token %}
+              <ul>
+                <li><strong>Логин: </strong>{{auth.username}}</li>
+              </ul>
+              <ul>
+                <li><strong>Пароль: </strong>{{auth.password}}</li>
+              </ul>
+                <input type="hidden" name="parameter" value="pos5">
+                <input type="submit" value="Войти" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="pricing-signup">
+              </form>
+          </div>
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <!-- /col -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+{% endif %}
+
+
+
+<!-- HelloPreload http://hello-site.ru/preloader/ -->
+<style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background: #000000 url(https://hello-site.ru//main/images/preloads/ball-triangle.svg) center center no-repeat;background-size:86px;}</style>
+<div id="hellopreloader"><div id="hellopreloader_preload"></div><p><a href="http://hello-site.ru">Hello-Site.ru. Бесплатный конструктор сайтов.</a></p></div>
+<script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");function fadeOutnojquery(el){el.style.opacity = 1;var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);hellopreloader.style.display = "none";}},16);}window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},1000);};</script>
+<!-- HelloPreload http://hello-site.ru/preloader/ -->
+
+</body>
+</html>
